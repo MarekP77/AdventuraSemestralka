@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.github.MarekP77.AdventuraSemestralka.logika.Taska;
+import com.github.MarekP77.AdventuraSemestralka.logika.Batoh;
 import com.github.MarekP77.AdventuraSemestralka.logika.Vec;
 
 import static org.junit.Assert.*;
@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  */
 public class TaskaTest
 {
-    private Taska taska;
+    private Batoh taska;
     private Vec a;
     private Vec b;
     private Vec c;
@@ -33,10 +33,10 @@ public class TaskaTest
     @Before
     public void setUp()
     {
-        taska = new Taska();
-        a = new Vec ("a",true);    
-        b = new Vec ("b",true);
-        c = new Vec ("c",true);
+        taska = new Batoh();
+        a = new Vec ("a",true,"vodka.jpg");    
+        b = new Vec ("b",true,"hul.jpg");
+        c = new Vec ("c",true,"kybl.jpg");
 
     }
 

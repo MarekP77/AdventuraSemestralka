@@ -44,7 +44,7 @@ public class PrikazSeber implements IPrikaz{
         else {
             if(sbirana.jePrenositelna())
             {
-                if(plan.getTaska().vlozVec(sbirana))
+                if(plan.getBatoh().vlozVec(sbirana))
                 {
                     return "Sebral jsi " + sbirana.getNazev();
                 }

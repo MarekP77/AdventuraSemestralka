@@ -52,13 +52,13 @@ public class HraTest {
         assertEquals(false, hra1.konecHry()); // Hra neskončila a hrajem
         hra1.zpracujPrikaz("jdi bar");
         hra1.zpracujPrikaz("jdi knihovna");
-        assertEquals(0, hra1.getHerniPlan().getTaska().vratSeznamVeci().size()); // V tašce nic není
+        assertEquals(0, hra1.getHerniPlan().getBatoh().vratSeznamVeci().size()); // V tašce nic není
         hra1.zpracujPrikaz("otevři trezor");
         hra1.zpracujPrikaz("seber dluhopisy");
-        assertEquals(0, hra1.getHerniPlan().getTaska().vratSeznamVeci().size()); // V tašce stále nic není, trezor se neotevřel, chce kod
+        assertEquals(0, hra1.getHerniPlan().getBatoh().vratSeznamVeci().size()); // V tašce stále nic není, trezor se neotevřel, chce kod
         hra1.zpracujPrikaz("otevři trezor Becherovka");
         hra1.zpracujPrikaz("seber dluhopisy");
-        assertEquals(1, hra1.getHerniPlan().getTaska().vratSeznamVeci().size()); // Trezor se otevřel a sebrali jsme dluhopisy
+        assertEquals(1, hra1.getHerniPlan().getBatoh().vratSeznamVeci().size()); // Trezor se otevřel a sebrali jsme dluhopisy
         hra1.zpracujPrikaz("jdi kancelář");
         hra1.zpracujPrikaz("otevři skříňka");
         hra1.zpracujPrikaz("seber klíč");
@@ -81,30 +81,30 @@ public class HraTest {
     @Test       // Testování sbírání / vyhazování věcí / Tašky
     public void MultyTest() 
     {
-        Vec a = new Vec ("a",true);    // Příprava testovacích věcí
-        Vec b = new Vec ("b",true);
-        Vec c = new Vec ("c",false);
-        Vec d = new Vec ("d",true);
+        Vec a = new Vec ("a",true,"vodka.jpg");    // Příprava testovacích věcí
+        Vec b = new Vec ("b",true,"hul.jpg");
+        Vec c = new Vec ("c",false,"kybl.jpg");
+        Vec d = new Vec ("d",true,"krysa.jpg");
 
         hra1.getHerniPlan().getAktualniProstor().vlozVec(a);    // Vložení testovacích věcí do mistnosti kde jsme abysme nemuseli chodit po hře
         hra1.getHerniPlan().getAktualniProstor().vlozVec(b);
         hra1.getHerniPlan().getAktualniProstor().vlozVec(c);
 
         // sbírání věcí
-        assertEquals(0, hra1.getHerniPlan().getTaska().vratSeznamVeci().size()); // Taška je prázdná
+        assertEquals(0, hra1.getHerniPlan().getBatoh().vratSeznamVeci().size()); // Taška je prázdná
         hra1.zpracujPrikaz("seber a");  
-        assertEquals(1, hra1.getHerniPlan().getTaska().vratSeznamVeci().size()); // Sebrali jsme věc a
+        assertEquals(1, hra1.getHerniPlan().getBatoh().vratSeznamVeci().size()); // Sebrali jsme věc a
 
         hra1.zpracujPrikaz("seber c");
-        assertEquals(1, hra1.getHerniPlan().getTaska().vratSeznamVeci().size()); // Věc c se nedá sebrat, proto máme stále 1 věc
+        assertEquals(1, hra1.getHerniPlan().getBatoh().vratSeznamVeci().size()); // Věc c se nedá sebrat, proto máme stále 1 věc
         hra1.zpracujPrikaz("seber b"); 
-        assertEquals(2, hra1.getHerniPlan().getTaska().vratSeznamVeci().size());
+        assertEquals(2, hra1.getHerniPlan().getBatoh().vratSeznamVeci().size());
         hra1.zpracujPrikaz("seber d"); 
-        assertEquals(2, hra1.getHerniPlan().getTaska().vratSeznamVeci().size()); // Taška je plná a žádná věc tak nebyla sebrána
+        assertEquals(2, hra1.getHerniPlan().getBatoh().vratSeznamVeci().size()); // Taška je plná a žádná věc tak nebyla sebrána
 
         hra1.zpracujPrikaz("zahoď a");
-        assertEquals(1, hra1.getHerniPlan().getTaska().vratSeznamVeci().size()); // Vyhodili jsme věc
+        assertEquals(1, hra1.getHerniPlan().getBatoh().vratSeznamVeci().size()); // Vyhodili jsme věc
         hra1.zpracujPrikaz("seber a");
-        assertEquals(2, hra1.getHerniPlan().getTaska().vratSeznamVeci().size()); // Opět jí mužeme sebrat, nikam nezmizela
+        assertEquals(2, hra1.getHerniPlan().getBatoh().vratSeznamVeci().size()); // Opět jí mužeme sebrat, nikam nezmizela
     }
 }

@@ -50,7 +50,7 @@ class PrikazOtevri implements IPrikaz {
                     if(kod.equals("Becherovka"))
                     {
                         plan.otevriTrezor();
-                        Vec dluhopisy = new Vec ("dluhopisy",true);
+                        Vec dluhopisy = new Vec ("dluhopisy",true,"dluhopis.jpg");
                         aktualni.vlozVec(dluhopisy);
                         return "Otevřel jsi trezor a dluhopisy vypadly do místnosti.";
                     }
@@ -76,7 +76,7 @@ class PrikazOtevri implements IPrikaz {
                 if(!plan.getSkrinka()) // pokud je skříňka zavřená
                 {
                     plan.otevriSkrinku();
-                    Vec klic = new Vec ("klíč",true);
+                    Vec klic = new Vec ("klíč",true,"klic.jpg");
                     aktualni.vlozVec(klic);
                     return "Otevřel jsi skříňku a klíč vypadl do místnosti";
                 }
@@ -94,7 +94,7 @@ class PrikazOtevri implements IPrikaz {
         {
             if(aktualni.getNazev().equals("kancelář"))
             {
-               if(plan.getTaska().obsahujeVec("klíč"))
+               if(plan.getBatoh().obsahujeVec("klíč"))
                {    
                     if(!plan.getPredsin())
                     {

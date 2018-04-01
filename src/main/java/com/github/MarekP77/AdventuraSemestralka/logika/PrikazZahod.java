@@ -30,9 +30,9 @@ class PrikazZahod implements IPrikaz {
         }
         String nazevVeci = parametry[0];
         Prostor aktualniProstor = plan.getAktualniProstor();
-        if(plan.getTaska().obsahujeVec(nazevVeci))
+        if(plan.getBatoh().obsahujeVec(nazevVeci))
         {
-            Vec vyhozena = plan.getTaska().vyhodVec(nazevVeci);
+            Vec vyhozena = plan.getBatoh().vyhodVec(nazevVeci);
             aktualniProstor.vlozVec(vyhozena);
             return "Zahodil jsi " + vyhozena.getNazev();
         }

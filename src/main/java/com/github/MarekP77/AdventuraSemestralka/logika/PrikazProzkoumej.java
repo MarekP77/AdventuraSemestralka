@@ -26,7 +26,7 @@ class PrikazProzkoumej implements IPrikaz {
     {
         Text = "";
         Map<String, Vec> seznam;
-        seznam = plan.getTaska().vratSeznamVeci();
+        seznam = plan.getBatoh().vratSeznamVeci();
         if(seznam.size()==0)
         {
             Text = " nic - igelitová taška je prázdná ";

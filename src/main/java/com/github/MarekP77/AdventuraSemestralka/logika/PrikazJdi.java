@@ -47,7 +47,7 @@ public class PrikazJdi implements IPrikaz {
         }
         else 
         {
-            if(plan.getTaska().obsahujeVec("hůl"))
+            if(plan.getBatoh().obsahujeVec("hůl"))
             {
                 return "Se Zemanovou holí nikam jít nemůžeš, zahoď ji.";
             }
@@ -63,7 +63,7 @@ public class PrikazJdi implements IPrikaz {
                 {
                     if(plan.getPredsin())
                     {
-                        if(plan.getTaska().obsahujeVec("dluhopisy"))
+                        if(plan.getBatoh().obsahujeVec("dluhopisy"))
                         {
                             plan.setAktualniProstor(sousedniProstor);
                             plan.getHra().setKonecHry(true);
