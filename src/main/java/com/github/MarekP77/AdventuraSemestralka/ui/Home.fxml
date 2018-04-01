@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.MarekP77.AdventuraSemestralka.ui.HomeController">
+   <children>
+      <TextField fx:id="vstupniText" layoutX="62.0" layoutY="661.0" onAction="#odesliPrikaz" prefHeight="25.0" prefWidth="988.0" />
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1088.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Soubor">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#novaHra" text="Nová hra" />
+                  <MenuItem mnemonicParsing="false" onAction="#konecHry" text="Konec Hry" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#Napoveda" text="Nápověda" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <ListView fx:id="seznamVeciBatoh" layoutX="445.0" layoutY="436.0" onMouseClicked="#klikBatoh" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="seznamVychodu" layoutX="101.0" layoutY="436.0" onMouseClicked="#klikMistnost" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="seznamVeciMistnost" layoutX="793.0" layoutY="436.0" onMouseClicked="#klikVecMistnost" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="506.0" layoutY="412.0" text="Obsah batohu" />
+      <Label layoutX="178.0" layoutY="413.0" text="Východy" />
+      <Label layoutX="852.0" layoutY="413.0" text="Věci v místnosti" />
+      <ImageView fitHeight="370.0" fitWidth="581.0" layoutX="461.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@herniPlan.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="vystup" layoutX="16.0" layoutY="35.0" prefHeight="352.0" prefWidth="370.0" />
+      <ImageView fx:id="uzivatel" fitHeight="61.0" fitWidth="63.0" layoutX="495.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Troll-face.sh.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="512.0" layoutY="644.0" text="Zadej příkaz" />
+   </children>
+</AnchorPane>

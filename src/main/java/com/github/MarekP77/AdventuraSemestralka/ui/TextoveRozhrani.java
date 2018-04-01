@@ -1,4 +1,4 @@
-package com.github.MarekP77.AdventuraSemestralka.uiText;
+package com.github.MarekP77.AdventuraSemestralka.ui;
 
 import java.util.Scanner;
 import com.github.MarekP77.AdventuraSemestralka.logika.IHra;
