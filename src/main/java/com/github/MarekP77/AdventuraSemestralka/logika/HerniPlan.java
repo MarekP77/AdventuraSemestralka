@@ -1,5 +1,7 @@
 package com.github.MarekP77.AdventuraSemestralka.logika;
 
+import java.util.Observable;
+
 /**
  *  Class HerniPlan - třída představující mapu a stav adventury.
  * 
@@ -11,16 +13,21 @@ package com.github.MarekP77.AdventuraSemestralka.logika;
  *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova
  *@version    pro školní rok 2016/2017
  */
-public class HerniPlan 
+public class HerniPlan extends Observable
 {
 
     private Prostor aktualniProstor;
     private Prostor viteznyProstor;
-    private Taska taska;
+    private Batoh batoh;
     private Hra hra;
     private boolean trezor; // říká zda je trezor otevřený
     private boolean skrinka; // říká zda je skříňka otevřená
     private boolean zamekPredsin; // říká zda je předsíň zamčená či ne
+    
+    
+    
+    
+    
     /**
      *  Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
      *  Jako výchozí aktuální prostor nastaví halu.
@@ -28,7 +35,7 @@ public class HerniPlan
     public HerniPlan(Hra hra) 
     {
         zalozProstoryHry();
-        taska = new Taska();
+        batoh = new Batoh();
         this.hra = hra;
         trezor = false;
         skrinka = false;
@@ -41,12 +48,12 @@ public class HerniPlan
      */
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
-        Prostor sklep = new Prostor("sklep", "Zde začínáte hru");
-        Prostor bar = new Prostor("bar", "Zde je cítit zápach Becherovky");
-        Prostor kancelar = new Prostor("kancelář", "Je vybavena drahým nábytkem");
-        Prostor knihovna = new Prostor("knihovna", "Je málo osvětlená");
-        Prostor predsin = new Prostor("předsíň", "Konečná místnost");
-        Prostor okno = new Prostor("okno", "Úniková místnost");
+        Prostor sklep = new Prostor("sklep", "Zde začínáte hru",230,0);
+        Prostor bar = new Prostor("bar", "Zde je cítit zápach Becherovky",430,0);
+        Prostor kancelar = new Prostor("kancelář", "Je vybavena drahým nábytkem",230,150);
+        Prostor knihovna = new Prostor("knihovna", "Je málo osvětlená",430,150);
+        Prostor predsin = new Prostor("předsíň", "Konečná místnost",230,300);
+        Prostor okno = new Prostor("okno", "Úniková místnost",0,150);
 
         
         // přiřazují se průchody mezi prostory (sousedící prostory)
@@ -63,14 +70,14 @@ public class HerniPlan
         aktualniProstor = sklep;  // hra začíná ve sklepě
         viteznyProstor = predsin; // hra konci v přesíni
 
-        Vec vodka = new Vec("vodka",true);
-        Vec hul = new Vec("hůl",true);
-        Vec trezor = new Vec("trezor",false);
-        Vec kybl = new Vec("kýbl",true);
-        Vec krysa = new Vec("krysa",true);
-        Vec stul = new Vec("stůl",false);
-        Vec zidle = new Vec("židle",false);
-        Vec skrinka = new Vec("skříňka",false);
+        Vec vodka = new Vec("vodka",true,"vodka.jpg");
+        Vec hul = new Vec("hůl",true,"hul.jpg");
+        Vec trezor = new Vec("trezor",false,"trezor.jpg");
+        Vec kybl = new Vec("kýbl",true,"kybl.jpg");
+        Vec krysa = new Vec("krysa",true,"krysa.jpg");
+        Vec stul = new Vec("stůl",false,"stul.jpg");
+        Vec zidle = new Vec("židle",false,"zidle.jpg");
+        Vec skrinka = new Vec("skříňka",false,"skrinka.jpg");
         
         Postava zeman = new Postava("Zeman","Rád piji Becherovku, to je můj oblíbený nápoj.");
         
@@ -106,9 +113,9 @@ public class HerniPlan
         aktualniProstor = prostor;
     }
     // metoda vrací odkaz na tašku
-    public Taska getTaska() 
+    public Batoh getBatoh() 
     {
-        return this.taska;
+        return this.batoh;
     }
     // metoda vrací odkaz na hru
     public Hra getHra()
@@ -144,6 +151,12 @@ public class HerniPlan
     public void otevriPredsin()
     {
         zamekPredsin = true;
+    }
+    
+    @Override
+    public void notifyObservers(){
+        setChanged();
+        super.notifyObservers();
     }
 }
 

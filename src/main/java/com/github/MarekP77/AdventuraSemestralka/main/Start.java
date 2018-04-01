@@ -1,10 +1,11 @@
 /* Soubor je ulozen v kodovani UTF-8.
  * Kontrola kódování: Příliš žluťoučký kůň úpěl ďábelské ódy. */
-package com.github.MarekP77.AdventuraSemestralka.logika.main;
+package com.github.MarekP77.AdventuraSemestralka.main;
 
 
 import com.github.MarekP77.AdventuraSemestralka.logika.*;
-import com.github.MarekP77.AdventuraSemestralka.uiText.TextoveRozhrani;
+import com.github.MarekP77.AdventuraSemestralka.ui.TextoveRozhrani;
+
 import java.io.File;
 
 /*******************************************************************************

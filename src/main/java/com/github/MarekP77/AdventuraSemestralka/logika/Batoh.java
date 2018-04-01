@@ -7,12 +7,12 @@ import java.util.*;
  * @author    Marek Pospíšil
  * @version   1.0
  */
-public class Taska
+public class Batoh
 {
     private Map<String, Vec> seznamVeci;
     private int kapacita = 2;
     // konstruktor
-    public Taska()
+    public Batoh()
     {
         seznamVeci = new HashMap<>();
     }
