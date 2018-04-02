@@ -5,6 +5,10 @@
  */
 package com.github.MarekP77.AdventuraSemestralka.ui;
 
+import com.github.MarekP77.AdventuraSemestralka.logika.Hra;
+import com.github.MarekP77.AdventuraSemestralka.logika.IHra;
+import com.github.MarekP77.AdventuraSemestralka.ui.TextoveRozhrani;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,10 +32,21 @@ public class GuiAdventura extends Application {
     }
 
     /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
+	 * Spouštěcí metoda pro aplikaci
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		if (args.length == 0) {
+            launch(args);
+        } else {
+            if (args[0].equals("-text")) {
+                IHra hra = new Hra();
+                TextoveRozhrani ui = new TextoveRozhrani(hra);
+                ui.hraj();
+            } else {
+                System.out.println("Neplatný parametr");
+            }
+        }
+	}
     
 }
